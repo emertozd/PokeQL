@@ -1,0 +1,16 @@
+query PokemonList($limit: Int, $offset: Int) {
+    pokemon_v2_pokemon(limit: $limit, offset: $offset) {
+        base_experience
+        height
+        id
+        is_default
+        name
+        order
+        pokemon_species_id
+        pokemon_v2_pokemontypes {
+            pokemon_v2_type {
+                id
+            }
+        }
+    }
+}

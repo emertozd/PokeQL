@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="strFetchingDataFromServer">Fetching data from server</string>
+    <string name="strRetry">Retry</string>
+</resources>

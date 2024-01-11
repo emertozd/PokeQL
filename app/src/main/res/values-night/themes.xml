@@ -1,0 +1,5 @@
+<resources>
+    <style name="Base.Theme.PokeQL" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/black</item>
+    </style>
+</resources>
