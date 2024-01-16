@@ -88,7 +88,7 @@ fun PokemonListItem(
                         end.linkTo(parent.end)
                         width = Dimension.fillToConstraints
                     },
-//                placeholder = painterResource(R.drawable.ic_placeholder),
+                placeholder = painterResource(R.drawable.ic_silhoutte),
                 onSuccess = {
                     scope.launch(Dispatchers.IO) {
                         if(pokemon.name == "fearow") {

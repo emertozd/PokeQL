@@ -34,6 +34,7 @@ dependencies {
     implementation(project(":core:ui"))
     implementation(project(":features:detail:domain"))
     implementation(project(":features:detail:shared"))
+    implementation(libs.androidx.palette.ktx)
 
     testImplementation(project(":core:test"))
 

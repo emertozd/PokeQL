@@ -1,10 +1,12 @@
 package com.emertozd.pokeql.detail.ui
 
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -14,14 +16,24 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.TileMode
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.graphics.drawable.toBitmap
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.palette.graphics.Palette
 import coil.compose.AsyncImage
 import coil.decode.SvgDecoder
 import coil.request.ImageRequest
@@ -77,76 +89,97 @@ fun PokemonDetailLayout(
     pokemon: PokemonDetailDomainModel,
     viewModel: PokemonDetailViewModel?,
 ) {
-    Column(
+
+    var primaryColor: Int by rememberSaveable { mutableStateOf(Color.Transparent.toArgb()) }
+    var secondaryColor: Int by rememberSaveable { mutableStateOf(Color.Transparent.toArgb()) }
+
+
+    Box(
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .background(color = MaterialTheme.colorScheme.surface)
-            .verticalScroll(rememberScrollState())
     ) {
-
-        AsyncImage(
-            model = ImageRequest.Builder(LocalContext.current)
-                .data("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg")
-                .decoderFactory(SvgDecoder.Factory())
-                .crossfade(true)
-                .build(),
-            placeholder = painterResource(R.drawable.ic_silhoutte),
-            contentDescription = null,
+        Box(
             modifier = Modifier
-                .size(300.dp)
-                .padding(top = 32.dp)
-                .align(Alignment.CenterHorizontally)
+                .fillMaxHeight()
+                .fillMaxWidth()
+                .background(
+                    brush = Brush.radialGradient(
+                        colors = listOf(Color(secondaryColor), Color(primaryColor)),
+                        center = Offset(500f, 400f),
+                        radius = 700f,
+                        tileMode = TileMode.Decal
+                    ),
+                )
         )
-
-        Text(
+        Column(
             modifier = Modifier
-                .padding(top = 32.dp)
-                .align(Alignment.CenterHorizontally),
-            text = pokemon.name.orEmpty(),
-            color = MaterialTheme.colorScheme.onSurface,
-            style = MaterialTheme.typography.headlineMedium
-        )
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+        ) {
 
-        pokemon.types?.let {
-            PokemonTypeLayout(
-                it,
-                Modifier
-                    .padding(top = 16.dp)
-                    .align(Alignment.CenterHorizontally)
-            )
-        }
-        Text(
-            modifier = Modifier
-                .padding(16.dp)
-                .align(Alignment.CenterHorizontally),
-            text = pokemon.description.orEmpty(),
-            color = MaterialTheme.colorScheme.onSurface,
-            style = MaterialTheme.typography.bodyMedium
-        )
-
-        pokemon.stats?.let { list ->
-            list.forEach { stat ->
-                Spacer(modifier = Modifier.size(8.dp))
-                Row(
-                    modifier = Modifier,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-//                    Text(
-//                        modifier = Modifier,
-//                        text = stat.name.orEmpty(),
-//                        style = MaterialTheme.typography.bodyMedium,
-//                        textAlign = TextAlign.Start,
-//                    )
-                    StatProgressBar(
-                        modifier = Modifier.padding(start = 16.dp, end = 16.dp),
-                        statUIModel = stat.toUIModel(),
-                    )
+            AsyncImage(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg")
+                    .decoderFactory(SvgDecoder.Factory())
+                    .crossfade(true)
+                    .build(),
+                placeholder = painterResource(R.drawable.ic_silhoutte),
+                contentDescription = null,
+                modifier = Modifier
+                    .size(300.dp)
+                    .padding(top = 32.dp)
+                    .align(Alignment.CenterHorizontally),
+                onSuccess = {
+                    Palette.Builder(it.result.drawable.toBitmap()).generate { palette ->
+                        palette?.dominantSwatch?.rgb?.let { color ->
+                            secondaryColor = color
+                        }
+                    }
                 }
+            )
 
+            Text(
+                modifier = Modifier
+                    .padding(top = 32.dp)
+                    .align(Alignment.CenterHorizontally),
+                text = pokemon.name.orEmpty(),
+                color = MaterialTheme.colorScheme.onSurface,
+                style = MaterialTheme.typography.headlineMedium
+            )
+
+            pokemon.types?.let {
+                PokemonTypeLayout(
+                    it,
+                    Modifier
+                        .padding(top = 32.dp)
+                        .align(Alignment.CenterHorizontally)
+                )
+            }
+            Text(
+                modifier = Modifier
+                    .padding(16.dp)
+                    .align(Alignment.CenterHorizontally),
+                text = pokemon.description.orEmpty(),
+                color = MaterialTheme.colorScheme.onSurface,
+                style = MaterialTheme.typography.bodyMedium
+            )
+
+            pokemon.stats?.let { list ->
+                list.forEach { stat ->
+                    Spacer(modifier = Modifier.size(8.dp))
+                    Row(
+                        modifier = Modifier,
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        StatProgressBar(
+                            modifier = Modifier.padding(start = 16.dp, end = 16.dp),
+                            statUIModel = stat.toUIModel(),
+                        )
+                    }
+                }
             }
         }
-
-
     }
 }
 
