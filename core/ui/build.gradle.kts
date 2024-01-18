@@ -1,10 +1,10 @@
 plugins {
-    id("pokeql.android.library")
-    id("com.google.devtools.ksp")
+    alias(libs.plugins.pokeql.android.library)
+    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.core.ui"
+    namespace = "com.emertozd.pokeql.core.ui"
 
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtensionVersion.get()
@@ -17,7 +17,7 @@ android {
 }
 
 dependencies {
-    api(project(":core:domain"))
+    api(projects.core.domain)
 
     api(libs.core.ktx)
     api(libs.appcompat)

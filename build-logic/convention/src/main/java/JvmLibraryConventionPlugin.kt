@@ -1,4 +1,4 @@
-import com.emertozd.convention.extensions.configureKotlinJvm
+import com.emertozd.pokeql.convention.extensions.configureKotlinJvm
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

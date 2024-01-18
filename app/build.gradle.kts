@@ -1,8 +1,8 @@
 plugins {
-    id("pokeql.android.application")
-    id("com.google.devtools.ksp")
-    id("com.google.dagger.hilt.android")
-    id("kotlin-parcelize")
+    alias(libs.plugins.pokeql.android.application)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.parcelize)
 }
 
 android {
@@ -12,7 +12,7 @@ android {
         applicationId = "com.emertozd.pokeql"
         versionCode = 1
         versionName = "1.0"
-        }
+    }
 
     buildTypes {
         release {
@@ -35,17 +35,16 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:ui"))
-    implementation(project(":features:home:ui"))
-    implementation(project(":features:home:data"))
-    implementation(project(":features:detail:ui"))
-    implementation(project(":features:detail:data"))
+    implementation(projects.core.ui)
+    implementation(projects.features.home.ui)
+    implementation(projects.features.home.data)
+    implementation(projects.features.detail.implWiring)
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
 
     implementation(libs.composeDestinations)
-    ksp (libs.composeDestinationsKsp)
+    ksp(libs.composeDestinationsKsp)
 
     kspAndroidTest(libs.hilt.android.compiler)
 }

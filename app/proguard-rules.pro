@@ -4,8 +4,8 @@
 -dontwarn org.bouncycastle.**
 -dontwarn org.openjsse.**
 
--keep,allowobfuscation,allowshrinking class com.core.network.** { *; }
--keep,allowobfuscation,allowshrinking interface com.core.network.** { *; }
+-keep,allowobfuscation,allowshrinking class com.emertozd.pokeql.core.network.** { *; }
+-keep,allowobfuscation,allowshrinking interface com.emertozd.pokeql.core.network.** { *; }
 
 -keep,allowobfuscation,allowshrinking interface retrofit2.Call
 -keep,allowobfuscation,allowshrinking class retrofit2.Response

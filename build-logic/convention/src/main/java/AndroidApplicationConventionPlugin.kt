@@ -1,6 +1,6 @@
 import com.android.build.api.dsl.ApplicationExtension
-import com.emertozd.convention.extensions.configureKotlinAndroid
-import com.emertozd.convention.extensions.libs
+import com.emertozd.pokeql.convention.extensions.configureKotlinAndroid
+import com.emertozd.pokeql.convention.extensions.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure

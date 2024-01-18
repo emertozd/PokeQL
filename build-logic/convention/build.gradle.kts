@@ -4,7 +4,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "com.emertozd.convention.extensions.buildlogic"
+group = "com.emertozd.pokeql.convention.extensions.buildlogic"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17

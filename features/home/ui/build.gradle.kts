@@ -1,8 +1,8 @@
 plugins {
-    id("pokeql.android.library")
-    id("com.google.devtools.ksp")
-    id("com.google.dagger.hilt.android")
-    id("kotlin-parcelize")
+    alias(libs.plugins.pokeql.android.library)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.parcelize)
 }
 
 android {
@@ -25,12 +25,12 @@ ksp {
 
 
 dependencies {
-    implementation(project(":core:ui"))
-    implementation(project(":features:home:domain"))
-    implementation(project(":features:detail:shared"))
+    implementation(projects.core.ui)
+    implementation(projects.features.home.domain)
+    implementation(projects.features.detail.shared)
     implementation(libs.androidx.palette.ktx)
 
-    testImplementation(project(":core:test"))
+    testImplementation(projects.core.test)
     testImplementation(libs.paging.common)
     implementation(libs.paging.runtime)
     implementation(libs.paging.compose)

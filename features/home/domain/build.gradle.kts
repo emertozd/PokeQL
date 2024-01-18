@@ -1,8 +1,8 @@
 plugins {
-    id("pokeql.jvm.library")
+    alias(libs.plugins.pokeql.jvm.library)
 }
 
 dependencies {
-    api(project(":core:domain"))
+    api(projects.core.domain)
     api(libs.paging.common)
 }

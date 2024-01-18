@@ -1,6 +1,6 @@
 plugins {
-    id("pokeql.jvm.library")
-    id("com.google.devtools.ksp")
+    alias(libs.plugins.pokeql.jvm.library)
+    alias(libs.plugins.ksp)
 }
 
 dependencies {

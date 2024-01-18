@@ -9,7 +9,7 @@ compose = "1.5.4"
 compose-destinations = "1.9.57"
 constraintlayoutCompose = "1.0.1"
 core-ktx = "1.12.0"
-hilt = "2.48"
+hilt = "2.50"
 hilt-navigation-compose = "1.1.0"
 javaxInject = "1"
 junit = "4.13.2"
@@ -17,7 +17,7 @@ kotlin = "1.9.21"
 kotlinCompilerExtensionVersion = "1.5.7"
 kotlinxCoroutines = "1.7.3"
 ksp = "1.9.21-1.0.15"
-lifecycle = "2.7.0-rc02"
+lifecycle = "2.7.0"
 logging-interceptor = "5.0.0-alpha.2"
 lottie = "6.2.0"
 material = "1.11.0"
@@ -73,3 +73,8 @@ apollo = { id = "com.apollographql.apollo3", version.ref = "apollo" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+#Project defined properties
+pokeql-android-application = { id = "pokeql.android.application", version = "unspecified" }
+pokeql-android-library = { id = "pokeql.android.library", version = "unspecified" }
+pokeql-jvm-library = { id = "pokeql.jvm.library", version = "unspecified" }

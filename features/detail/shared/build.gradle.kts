@@ -1,3 +1,3 @@
 plugins {
-    id("pokeql.jvm.library")
+    alias(libs.plugins.pokeql.jvm.library)
 }

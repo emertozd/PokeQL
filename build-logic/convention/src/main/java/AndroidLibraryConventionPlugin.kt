@@ -1,9 +1,9 @@
 import com.android.build.api.variant.LibraryAndroidComponentsExtension
 import com.android.build.gradle.LibraryExtension
-import com.emertozd.convention.extensions.configureKotlinAndroid
-import com.emertozd.convention.extensions.configureKotlinAndroidToolchain
-import com.emertozd.convention.extensions.disableUnnecessaryAndroidTests
-import com.emertozd.convention.extensions.libs
+import com.emertozd.pokeql.convention.extensions.configureKotlinAndroid
+import com.emertozd.pokeql.convention.extensions.configureKotlinAndroidToolchain
+import com.emertozd.pokeql.convention.extensions.disableUnnecessaryAndroidTests
+import com.emertozd.pokeql.convention.extensions.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
