@@ -58,13 +58,13 @@ internal fun Project.configureKotlinAndroid(
 
     configureKotlin()
 
-    dependencies {
-        add("testImplementation", libs.findLibrary("junit").get())
+//    dependencies {
+//        add("testImplementation", libs.findLibrary("junit").get())
 //        add("testImplementation", libs.findLibrary("mockk").get())
 //        add("testImplementation", libs.findLibrary("turbine").get())
 //        add("testImplementation", libs.findLibrary("androidx-core-testing").get())
 //        add("testImplementation", libs.findLibrary("kotlinx-coroutines-test").get())
-    }
+//    }
 }
 
 /**

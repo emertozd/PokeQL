@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.pokeql.android.library)
+    alias(libs.plugins.convention.android.library)
     alias(libs.plugins.ksp)
 }
 

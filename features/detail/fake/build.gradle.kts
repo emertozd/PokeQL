@@ -1,6 +1,5 @@
 plugins {
-    alias(libs.plugins.pokeql.android.library)
-    alias(libs.plugins.ksp)
+    alias(libs.plugins.module.fake)
 }
 
 android {
@@ -8,8 +7,5 @@ android {
 }
 
 dependencies {
-    api(projects.core.network)
     api(projects.features.detail.impl.domain)
-
-    ksp(libs.hilt.compiler)
 }

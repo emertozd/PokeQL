@@ -95,7 +95,6 @@ fun DemoScreen(
                 modifier = Modifier.align(Alignment.CenterHorizontally),
                 onClick = {
                     fakeResultHolder.setResult(Result.Success(null))
-                    fakeResultHolder.setResult(Result.Success(MockData.mockDetailModel))
                     detailCommunicator?.startFeature(DetailArguments(1))
                 }
             ) {
@@ -107,7 +106,6 @@ fun DemoScreen(
                     .padding(top = 32.dp)
                     .align(Alignment.CenterHorizontally),
                 onClick = {
-                    fakeResultHolder.setResult(Result.Success(null))
                     fakeResultHolder.setResult(Result.Success(MockData.mockDetailModel.copy(stats = emptyList())))
                     detailCommunicator?.startFeature(DetailArguments(1))
                 }
@@ -120,7 +118,6 @@ fun DemoScreen(
                     .padding(top = 32.dp)
                     .align(Alignment.CenterHorizontally),
                 onClick = {
-                    fakeResultHolder.setResult(Result.Success(null))
                     fakeResultHolder.setResult(Result.Success(MockData.mockDetailModel.copy(stats = emptyList())))
                     detailCommunicator?.startFeature(DetailArguments(1))
                 }

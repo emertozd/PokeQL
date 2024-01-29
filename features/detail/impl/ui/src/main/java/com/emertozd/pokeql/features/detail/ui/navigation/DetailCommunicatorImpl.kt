@@ -11,8 +11,7 @@ import javax.inject.Inject
 class DetailCommunicatorImpl @Inject constructor(private val navControllerHolder: NavControllerHolder) :
     DetailCommunicator {
     override fun startFeature(detailArguments: DetailArguments) {
-        navControllerHolder.getController()
-            ?.navigate(PokemonDetailScreenDestination(detailArguments.toParcelable()))
+        navControllerHolder.getController()?.navigate(PokemonDetailScreenDestination(detailArguments.toParcelable()))
     }
 
     private fun DetailArguments.toParcelable(): PokemonDetailArgModel {

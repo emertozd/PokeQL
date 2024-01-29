@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.pokeql.android.application)
+    alias(libs.plugins.convention.android.application)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
     alias(libs.plugins.parcelize)

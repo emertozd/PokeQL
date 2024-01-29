@@ -1,9 +1,7 @@
 plugins {
-    alias(libs.plugins.pokeql.jvm.library)
+    alias(libs.plugins.module.domain)
 }
 
 dependencies {
-    api(projects.core.domain)
-    implementation(projects.core.schema)
     api(projects.features.detail.shared)
 }

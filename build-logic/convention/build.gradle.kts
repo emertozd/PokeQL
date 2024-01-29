@@ -35,6 +35,39 @@ gradlePlugin {
             implementationClass = "AndroidLibraryConventionPlugin"
         }
 
+        register("androidComposeLibrary") {
+            id = "pokeql.android.compose.library"
+            implementationClass = "AndroidComposeLibraryConventionPlugin"
+        }
+
+        register("uiModule") {
+            id = "module.ui"
+            implementationClass = "UiModulePlugin"
+        }
+
+        register("domainModule") {
+            id = "module.domain"
+            implementationClass = "DomainModulePlugin"
+        }
+
+        register("dataModule") {
+            id = "module.data"
+            implementationClass = "DataModulePlugin"
+        }
+
+        register("fakeModule") {
+            id = "module.fake"
+            implementationClass = "FakeModulePlugin"
+        }
+        register("wiringModule") {
+            id = "module.wiring"
+            implementationClass = "WiringModulePlugin"
+        }
+        register("demoModule") {
+            id = "module.demo"
+            implementationClass = "DemoModulePlugin"
+        }
+
         register("jvmLibrary") {
             id = "pokeql.jvm.library"
             implementationClass = "JvmLibraryConventionPlugin"

@@ -8,12 +8,12 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name="com.emertozd.pokeql.demo.DemoApp"
+        android:name="com.emertozd.pokeql.features.detail.demo.DemoApp"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PokeQL">
         <activity
-            android:name="com.emertozd.pokeql.demo.DemoActivity"
+            android:name="com.emertozd.pokeql.features.detail.demo.DemoActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.PokeQL">

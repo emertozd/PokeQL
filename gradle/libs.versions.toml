@@ -75,6 +75,13 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 #Project defined properties
-pokeql-android-application = { id = "pokeql.android.application", version = "unspecified" }
-pokeql-android-library = { id = "pokeql.android.library", version = "unspecified" }
-pokeql-jvm-library = { id = "pokeql.jvm.library", version = "unspecified" }
+module-ui = { id = "module.ui", version = "unspecified" }
+module-domain = { id = "module.domain", version = "unspecified" }
+module-data = { id = "module.data", version = "unspecified" }
+module-fake = { id = "module.fake", version = "unspecified" }
+module-wiring = { id = "module.wiring", version = "unspecified" }
+module-demo = { id = "module.demo", version = "unspecified" }
+convention-android-application = { id = "pokeql.android.application", version = "unspecified" }
+convention-android-library = { id = "pokeql.android.library", version = "unspecified" }
+convention-android-compose-library = { id = "pokeql.android.compose.library", version = "unspecified" }
+convention-jvm-library = { id = "pokeql.jvm.library", version = "unspecified" }

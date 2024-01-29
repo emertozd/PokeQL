@@ -1,7 +1,5 @@
 plugins {
-    alias(libs.plugins.pokeql.android.library)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.hilt)
+    alias(libs.plugins.module.wiring)
 }
 
 android {
@@ -12,8 +10,4 @@ dependencies {
     implementation(projects.features.detail.impl.data)
     implementation(projects.features.detail.impl.domain)
     implementation(projects.features.detail.impl.ui)
-    implementation(projects.features.detail.shared)
-
-    ksp(libs.hilt.compiler)
-    implementation(libs.hilt.android)
 }
