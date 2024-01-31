@@ -14,7 +14,7 @@ class NetworkInterceptor(private val context: Context) : Interceptor {
             return chain.proceed(builder.build())
         } else {
             /**
-             * [NetworkUnavailableException] will be catch in [invokeAsFlow] extension function
+             * [NetworkUnavailableException] will be catch in [ApolloNetworkResultCall.invokeAsFlow] extension function
              * and transform to [NetworkResult.Error.InternetUnavailableException]
              */
             throw NetworkUnavailableException()
