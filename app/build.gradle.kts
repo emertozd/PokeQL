@@ -36,8 +36,7 @@ android {
 
 dependencies {
     implementation(projects.core.ui)
-    implementation(projects.features.home.ui)
-    implementation(projects.features.home.data)
+    implementation(projects.features.home.implWiring)
     implementation(projects.features.detail.implWiring)
 
     implementation(libs.hilt.android)

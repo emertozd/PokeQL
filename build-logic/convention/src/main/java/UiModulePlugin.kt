@@ -36,7 +36,7 @@ class UiModulePlugin : Plugin<Project> {
                 }
 
                 dependencies {
-                    "implementation"(project(":core:ui"))
+                    "api"(project(":core:ui"))
                     "ksp"(libs.findLibrary("hilt-android-compiler").get())
                     "implementation"(libs.findLibrary("hilt-android").get())
                     "implementation"(libs.findLibrary("hilt-navigation-compose").get())

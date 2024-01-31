@@ -1,4 +1,4 @@
-package com.emertozd.pokeql.features.detail.demo
+package com.emertozd.pokeql.features.home.demo
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -21,10 +21,8 @@ import com.emertozd.pokeql.core.domain.model.Result
 import com.emertozd.pokeql.core.ui.navigation.NavControllerHolder
 import com.emertozd.pokeql.core.ui.navigation.NavigationNode
 import com.emertozd.pokeql.core.ui.theme.PokeQlTheme
-import com.emertozd.pokeql.features.detail.demo.destinations.DemoScreenDestination
-import com.emertozd.pokeql.features.detail.fake.MockData
-import com.emertozd.pokeql.features.detail.shared.DetailCommunicator
-import com.emertozd.pokeql.features.detail.shared.model.DetailArguments
+import com.emertozd.pokeql.features.home.demo.destinations.DemoScreenDestination
+import com.emertozd.pokeql.features.home.shared.HomeCommunicator
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.dependency
@@ -46,7 +44,7 @@ class DemoActivity : ComponentActivity() {
     lateinit var fakeResultHolder: FakeResultHolder
 
     @Inject
-    lateinit var detailCommunicator: DetailCommunicator
+    lateinit var homeCommunicator: HomeCommunicator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,7 +67,7 @@ class DemoActivity : ComponentActivity() {
                                 navigationNodes.map { it.getSpec() }
                         },
                         dependenciesContainerBuilder = {
-                            dependency(detailCommunicator)
+                            dependency(homeCommunicator)
                             dependency(fakeResultHolder)
                         }
                     )
@@ -83,7 +81,7 @@ class DemoActivity : ComponentActivity() {
 @Destination(start = true)
 @Composable
 fun DemoScreen(
-    detailCommunicator: DetailCommunicator?,
+    homeCommunicator: HomeCommunicator?,
     fakeResultHolder: FakeResultHolder,
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
@@ -95,7 +93,7 @@ fun DemoScreen(
                 modifier = Modifier.align(Alignment.CenterHorizontally),
                 onClick = {
                     fakeResultHolder.setResult(Result.Success(null))
-                    detailCommunicator?.startFeature(DetailArguments(1))
+                    homeCommunicator?.startFeature()
                 }
             ) {
                 Text(text = "Start Feature With Success")
@@ -106,32 +104,8 @@ fun DemoScreen(
                     .padding(top = 32.dp)
                     .align(Alignment.CenterHorizontally),
                 onClick = {
-                    fakeResultHolder.setResult(Result.Success(MockData.mockDetailModel.copy(stats = emptyList())))
-                    detailCommunicator?.startFeature(DetailArguments(1))
-                }
-            ) {
-                Text(text = "Start Feature With Success but missing stats")
-            }
-
-            ElevatedButton(
-                modifier = Modifier
-                    .padding(top = 32.dp)
-                    .align(Alignment.CenterHorizontally),
-                onClick = {
-                    fakeResultHolder.setResult(Result.Success(MockData.mockDetailModel.copy(stats = emptyList())))
-                    detailCommunicator?.startFeature(DetailArguments(1))
-                }
-            ) {
-                Text(text = "Start Feature With Success but missing stats")
-            }
-
-            ElevatedButton(
-                modifier = Modifier
-                    .padding(top = 32.dp)
-                    .align(Alignment.CenterHorizontally),
-                onClick = {
                     fakeResultHolder.setResult(Result.Error<String>(""))
-                    detailCommunicator?.startFeature(DetailArguments(1))
+                    homeCommunicator?.startFeature()
                 }
             ) {
                 Text(text = "Start Feature With Error")
@@ -144,5 +118,5 @@ fun DemoScreen(
 @Preview
 @Composable
 fun DemoScreenPreview() {
-    DemoScreen(detailCommunicator = null, fakeResultHolder = FakeResultHolder())
+    DemoScreen(homeCommunicator = null, fakeResultHolder = FakeResultHolder())
 }

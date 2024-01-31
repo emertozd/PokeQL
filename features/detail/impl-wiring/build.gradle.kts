@@ -9,5 +9,5 @@ android {
 dependencies {
     implementation(projects.features.detail.impl.data)
     implementation(projects.features.detail.impl.domain)
-    implementation(projects.features.detail.impl.ui)
+    api(projects.features.detail.impl.ui)
 }
