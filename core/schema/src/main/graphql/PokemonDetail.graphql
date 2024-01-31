@@ -1,0 +1,81 @@
+query PokemonDetail($id: Int) {
+    pokemon_v2_pokemon(where: {id: {_eq: $id}}) {
+        base_experience
+        height
+        id
+        is_default
+        name
+        order
+        pokemon_species_id
+        weight
+        pokemon_v2_pokemontypes {
+            id
+            pokemon_v2_type {
+                name
+            }
+        }
+        pokemon_v2_pokemonspecy {
+            pokemon_v2_pokemonspeciesflavortexts(where: {language_id: {_eq: 9}, pokemon_v2_version: {name: {_eq: "omega-ruby"}}}) {
+                flavor_text
+            }
+        }
+        pokemon_v2_pokemonstats(where: {pokemon_id: {_eq: $id}}) {
+            stat_id
+            base_stat
+            effort
+            pokemon_v2_stat {
+                name
+            }
+        }
+    }
+}
+
+
+
+#query PokemonDetail ($name: String!) {
+#    pokemon (
+#        name: $name
+#    ) {
+#        abilities {
+#            ability {
+#                id
+#                url
+#                name
+#            }
+#            is_hidden
+#            slot
+#        }
+#        base_experience
+#        forms {
+#            id
+#            url
+#            name
+#        }
+#        height
+#        id
+#        is_default
+#        location_area_encounters
+#        name
+#        order
+#        stats {
+#            base_stat
+#            effort
+#            stat {
+#                id
+#                url
+#                name
+#            }
+#        }
+#        types {
+#            slot
+#            type {
+#                id
+#                url
+#                name
+#            }
+#        }
+#        weight
+#        status
+#        message
+#    }
+#}

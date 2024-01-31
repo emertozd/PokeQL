@@ -1,0 +1,87 @@
+[versions]
+agp = "8.2.0"
+apollo = "3.8.2"
+apollo-coroutines = "2.5.14"
+appcompat = "1.6.1"
+chucker = "4.0.0"
+coil = "2.5.0"
+compose = "1.5.4"
+compose-destinations = "1.9.57"
+constraintlayoutCompose = "1.0.1"
+core-ktx = "1.12.0"
+hilt = "2.50"
+hilt-navigation-compose = "1.1.0"
+javaxInject = "1"
+junit = "4.13.2"
+kotlin = "1.9.21"
+kotlinCompilerExtensionVersion = "1.5.7"
+kotlinxCoroutines = "1.7.3"
+ksp = "1.9.21-1.0.15"
+lifecycle = "2.7.0"
+logging-interceptor = "5.0.0-alpha.2"
+lottie = "6.2.0"
+material = "1.11.0"
+materialCompose = "1.1.2"
+navigation = "2.7.6"
+paging = "3.2.1"
+uiTooling = "1.5.4"
+paletteKtx = "1.0.0"
+
+
+[libraries]
+androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "uiTooling" }
+apollo-runtime = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "apollo" }
+apollo-coroutines = { module = "com.apollographql.apollo:apollo-coroutines-support", version.ref = "apollo-coroutines" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+chucker = { module = "com.github.chuckerteam.chucker:library", version.ref = "chucker" }
+coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+coilSvg = { module = "io.coil-kt:coil-svg", version.ref = "coil" }
+composeMaterial = { module = "androidx.compose.material3:material3", version.ref = "materialCompose" }
+composeUI = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+composeDestinations = { module = "io.github.raamcosta.compose-destinations:core", version.ref = "compose-destinations" }
+composeDestinationsKsp = { module = "io.github.raamcosta.compose-destinations:ksp", version.ref = "compose-destinations" }
+constraintlayoutCompose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayoutCompose" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt-core = { group = "com.google.dagger", name = "hilt-core", version.ref = "hilt" }
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
+javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "javaxInject" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
+lifecycleRuntime = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
+logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "logging-interceptor" }
+lottie = { module = "com.airbnb.android:lottie-compose", version.ref = "lottie" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+paging-common = { module = "androidx.paging:paging-common", version.ref = "paging" }
+paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging" }
+paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "paging" }
+androidx-palette-ktx = { group = "androidx.palette", name = "palette-ktx", version.ref = "paletteKtx" }
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+apollo = { id = "com.apollographql.apollo3", version.ref = "apollo" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+#Project defined properties
+module-ui = { id = "module.ui", version = "unspecified" }
+module-domain = { id = "module.domain", version = "unspecified" }
+module-data = { id = "module.data", version = "unspecified" }
+module-fake = { id = "module.fake", version = "unspecified" }
+module-wiring = { id = "module.wiring", version = "unspecified" }
+module-demo = { id = "module.demo", version = "unspecified" }
+convention-android-application = { id = "pokeql.android.application", version = "unspecified" }
+convention-android-library = { id = "pokeql.android.library", version = "unspecified" }
+convention-android-compose-library = { id = "pokeql.android.compose.library", version = "unspecified" }
+convention-jvm-library = { id = "pokeql.jvm.library", version = "unspecified" }
